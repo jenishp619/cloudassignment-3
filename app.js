@@ -38,7 +38,7 @@ app.post("/decrypt", function (req, res) {
   
   });
   
-  app.listen(3000, () => {
-    console.log("Started on PORT 3000");
+  app.listen(5000, () => {
+    console.log("Started on PORT 5000");
   });
   
