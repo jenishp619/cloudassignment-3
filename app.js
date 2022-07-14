@@ -10,9 +10,7 @@ app.use(bodyParser.json());
 app.post("/decrypt", function (req, res) {
     var data = req.body.message;
     const privateKey = fs.readFileSync('./private_key.txt', 'utf8');
-    console.log(data);
     const original = new nodersa(privateKey).decrypt(data, 'utf-8');
-    console.log(original);
     return res.status(200).send(
         JSON.stringify({
            response:original, 
@@ -27,8 +25,6 @@ app.post("/decrypt", function (req, res) {
     const key = new nodersa(publicKey );
     const encrypted = key.encrypt( data, 'base64' );
     let buffstring = Buffer.from(encrypted, 'base64').toString('utf-8');
-    console.log(encrypted);
-    console.log(buffstring);
     return res.status(200).send(
         JSON.stringify({
            response:encrypted, 
